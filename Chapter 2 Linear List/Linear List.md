@@ -25,3 +25,5 @@ DestroyList(&L)
 链表（Link List）
 
 单链表（Link List），默认带头结点
+
+不带头结点的版本没写，就写了思路，见 “XXX”

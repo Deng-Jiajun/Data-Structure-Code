@@ -50,12 +50,13 @@ void InitList(SqList &L)
 // 按位插入
 bool ListInsert(SqList &L, int i, int e)
 {
-    if (i < 1 || i > L.length + 1) // 判断i的范围是否有效，i∈[1,length+1],线性表是连续的序列，没有空值
+    if (i < 1 || i > L.length + 1) // 判断i的范围是否有效，i∈[1,length+1]
         return false;
     if (L.length == MaxSize) // 表已经满了
         return false;
 
-    for (int j = L.length; j >= i; j--) // data[index],index∈[i-1,length-1]，依次往后挪一格
+    // data[index] 依次往后挪一格（index∈[i-1,length-1]）
+    for (int j = L.length; j >= i; j--)
         L.data[j] = L.data[j - 1];
 
     L.data[i - 1] = e; // i-1,位序∈[1,length],数组下标∈[1,length-1]
@@ -66,11 +67,12 @@ bool ListInsert(SqList &L, int i, int e)
 // 按位删除
 bool ListDelete(SqList &L, int i, int &e)
 {
-    if (i < 1 || i > L.length) // 判断i的范围是否有效（i∈[1,length]
+    if (i < 1 || i > L.length) // 判断i的范围是否有效（i∈[1,length]）
         return false;
     e = L.data[i - 1]; // 把值先传回去
 
-    for (int j = i; j < L.length; j++) // data[index],index∈[i-1,length-1]，依次往前挪一格
+    // data[index] 依次往前挪一格（index∈[i-1,length-1]）
+    for (int j = i; j < L.length; j++)
         L.data[j - 1] = L.data[j];
 
     L.length--;
@@ -126,12 +128,13 @@ int main(void)
 
     // 按位查找
     cout << "run GetElem: "
-         << "L1:" << GetElem(sqList, 1) << " L2:" << GetElem(sqList, 2) << " L3:" << GetElem(sqList, 3) << endl;
+         << "L1:" << GetElem(sqList, 1) << " L2:" << GetElem(sqList, 2)
+         << " L3:" << GetElem(sqList, 3) << endl;
 
     // 按值查找
-    int searched=5;
-    cout<<searched<<" in L["<<LocateElem(sqList,searched)<<"]"<<endl;
-    
+    int searched = 5;
+    cout << searched << " in L[" << LocateElem(sqList, searched) << "]" << endl;
+
     // 删除
     int deleted;
     ListDelete(sqList, 2, deleted);
