@@ -48,7 +48,7 @@ bool ListInsert(LinkList &L, int i, int e)
     return InsertNextNode(p, e); // 替换上方代码块（重复代码提取）
 }
 
-// XXX 按位插入(不带头结点) 思路：处理insert逻辑
+// TODO 按位插入(不带头结点) 思路：处理insert逻辑
 
 // 在结点p *后* 插入结点，data值为e
 bool InsertNextNode(LNode *p, int e)
@@ -240,13 +240,15 @@ int Length(LinkList L)
     return length;
 }
 
-// XXX 表长(不带头结点)  思路：直接从头结点开始算第一个
+// TODO 表长(不带头结点)  思路：直接从头结点开始算第一个
 
 // 单链表初始化
 bool InitList(LinkList &L)
 {
-    // LinkList 只是一个指向LNode的指针，所以↓
-    // LinkList L; 这样的语句只是声明了一个指针
+    /**
+     * LinkList 只是一个指向LNode的指针，所以,
+     * LinkList L; 这样的语句只是声明了一个指针
+     */
     L = (LNode *)malloc(sizeof(LNode));
     if (L == NULL) // 内存分配失败
         return false;
@@ -332,7 +334,7 @@ LinkList ListHeadInsert(LinkList &L)
     return L;
 } // 使用头插法插入时，会将 *数据逆置*
 
-// XXX 头插法建立单链表(不带头结点) 思路：直接创建一个结点作为头结点，next 连接原表
+// TODO 头插法建立单链表(不带头结点) 思路：直接创建一个结点作为头结点，next 连接原表
 
 // 补充：PrintList
 void PrintList(LinkList L)
