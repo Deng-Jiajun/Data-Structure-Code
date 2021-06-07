@@ -299,7 +299,7 @@ LinkList ListTailInsert(LinkList &L)
     // ----------------------------------------------------------------
 
     /*
-    // 王道给出的写法，我看着觉得听别扭
+    // 王道给出的写法，我看着觉得挺别扭
     InitList(L); // 初始化
     int x;
     L = (LinkList)malloc(sizeof(LNode));
